@@ -13,6 +13,17 @@ const predefinedColors = [
   "#e6c9a8", // Light Brown
   "#e8eaed", // Gray
 ];
+
+function debounce(func, delay) {
+  let timeoutId;
+  return function (...args) {
+    clearTimeout(timeoutId);
+    timeoutId = setTimeout(() => {
+      func.apply(this, args);
+    }, delay);
+  };
+}
+
 document.addEventListener("DOMContentLoaded", function () {
   const noteInput = document.getElementById("noteInput");
   const notesGrid = document.querySelector(".fundoo-dash-notes-grid");
@@ -63,11 +74,15 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Add event listener for search input
   if (searchInput) {
-    searchInput.addEventListener("input", function () {
-      searchQuery = searchInput.value.trim().toLowerCase(); // Update searchQuery
-      renderNotes(); // Re-render notes based on search
-    });
+    const debouncedSearch = debounce(function () {
+      searchQuery = searchInput.value.trim().toLowerCase();
+      renderNotes();
+    }, 300); // 300ms delay
+
+    searchInput.addEventListener("input", debouncedSearch);
   }
+
+  fetchNotes();
 
   fetchNotes();
 
