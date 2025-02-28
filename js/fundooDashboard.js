@@ -1,3 +1,18 @@
+// Predefined colors (similar to Google Keep)
+const predefinedColors = [
+  "#ffffff", // White
+  "#f28b82", // Light Red
+  "#fbbc04", // Orange
+  "#fff475", // Yellow
+  "#ccff90", // Light Green
+  "#a7ffeb", // Cyan
+  "#cbf0f8", // Light Blue
+  "#aecbfa", // Light Purple
+  "#d7aefb", // Purple
+  "#fdcfe8", // Pink
+  "#e6c9a8", // Light Brown
+  "#e8eaed", // Gray
+];
 document.addEventListener("DOMContentLoaded", function () {
   const noteInput = document.getElementById("noteInput");
   const notesGrid = document.querySelector(".fundoo-dash-notes-grid");
@@ -306,23 +321,64 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 
-  async function changeColor(id) {
-    const newColor = prompt("Enter new color (e.g., #ff5733):");
-    if (!newColor) return;
-
-    try {
-      await fetch(`${apiUrl}/${id}/color`, {
-        method: "PUT",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${authToken}`,
-        },
-        body: JSON.stringify({ color: newColor } ),
+  function changeColor(id) {
+    // Remove any existing color picker popovers
+    const existingPicker = document.querySelector(".color-picker-popover");
+    if (existingPicker) existingPicker.remove();
+  
+    const noteElement = document.querySelector(`.fundoo-dash-note[data-id="${id}"]`);
+    const colorIcon = noteElement.querySelector(".color-icon");
+  
+    // Create the color picker popover
+    const colorPicker = document.createElement("div");
+    colorPicker.classList.add("color-picker-popover");
+  
+    // Add color options
+    predefinedColors.forEach((color) => {
+      const colorOption = document.createElement("div");
+      colorOption.classList.add("color-option");
+      colorOption.style.backgroundColor = color;
+      colorOption.dataset.color = color;
+  
+      // Add click event to select a color
+      colorOption.addEventListener("click", async () => {
+        try {
+          await fetch(`${apiUrl}/${id}/color`, {
+            method: "PUT",
+            headers: {
+              "Content-Type": "application/json",
+              Authorization: `Bearer ${authToken}`,
+            },
+            body: JSON.stringify({ color }),
+          });
+          updateNoteLocally(id, { color });
+          colorPicker.remove(); // Close the popover after selection
+        } catch (error) {
+          console.error("Error changing color:", error);
+        }
       });
-      updateNoteLocally(id, { color: newColor });
-    } catch (error) {
-      console.error("Error changing color:", error);
-    }
+  
+      colorPicker.appendChild(colorOption);
+    });
+  
+    // Position the popover near the color icon
+    const iconRect = colorIcon.getBoundingClientRect();
+    colorPicker.style.top = `${iconRect.bottom + window.scrollY + 5}px`;
+    colorPicker.style.left = `${iconRect.left + window.scrollX - 150}px`; // Adjust based on popover width
+  
+    // Append the popover to the body
+    document.body.appendChild(colorPicker);
+  
+    // Close the popover if clicking outside
+    const closePopover = (event) => {
+      if (!colorPicker.contains(event.target) && event.target !== colorIcon) {
+        colorPicker.remove();
+        document.removeEventListener("click", closePopover);
+      }
+    };
+    setTimeout(() => {
+      document.addEventListener("click", closePopover);
+    }, 0);
   }
 
   function updateNoteLocally(id, updatedData) {
