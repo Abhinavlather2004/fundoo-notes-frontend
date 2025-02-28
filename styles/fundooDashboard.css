@@ -214,3 +214,43 @@ body {
   outline: none;
   box-shadow: none;
 }
+.fundoo-dash-profile-button {
+  background-color: orange !important;
+  border: none !important;
+  border-radius: 50% !important;
+  font-size: 1.2em;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  padding: 0;
+}
+
+.dropdown-item-text {
+  padding: 0.25rem 1.5rem;
+  color: #212529;
+}
+
+#userName {
+  font-weight: bold;
+}
+
+#userEmail {
+  color: gray;
+}
+.profile-greeting {
+  margin: 0;
+  font-size: 1.3em; /* Slightly larger text */
+  font-weight: 600; /* Bold but not too heavy */
+  color: #333; /* Darker text for contrast */
+  display: flex;
+  align-items: center;
+  gap: 0.3em; /* Space between "Hi" and username */
+}
+
+.profile-greeting::before {
+  content: "Hi,"; /* Adds "Hi" before the username */
+  
+}

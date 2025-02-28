@@ -27,6 +27,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
         if (response.ok && data.token) {
           localStorage.setItem("jwtToken", data.token);
+          localStorage.setItem("userName", data.user.name); // Assuming API returns user object with name
+          localStorage.setItem("userEmail", data.user.email);
           window.location.href = "../pages/fundooDashboard.html";
         } else {
           alert("Login failed: " + (data.error || "Invalid credentials"));

@@ -33,16 +33,24 @@
                         <input type="text" id="searchInput" placeholder="Search notes...">
                     </div>
                     <div class="fundoo-dash-profile">
-                        <div class="btn-group">
-                            <button type="button" class="btn btn-secondary fundoo-dash-profile-button" data-bs-toggle="dropdown" aria-expanded="false">
-                              A
-                            </button>
-                            <ul class="dropdown-menu dropdown-menu-end">
-                              <li><button class="dropdown-item" type="button">Profile Settings</button></li>
+                      <div class="btn-group">
+                          <button type="button" class="btn btn-secondary fundoo-dash-profile-button" data-bs-toggle="dropdown" aria-expanded="false">
+                              <span id="profileLogo"></span> <!-- Placeholder for the first letter -->
+                          </button>
+                          <ul class="dropdown-menu dropdown-menu-end">
+                              <li>
+                                  <div class="dropdown-item-text">
+                                      <span id="userName" class="profile-greeting"></span> <!-- User's name -->
+                                      <br>
+                                      <small id="userEmail"></small> <!-- User's email -->
+                                  </div>
+                              </li>
+                              <li><hr class="dropdown-divider"></li>
+                              <!-- <li><button class="dropdown-item" type="button">Profile Settings</button></li> -->
                               <li><button id="Logout" class="dropdown-item" type="button">Logout</button></li>
-                            </ul>
-                          </div>                          
-                    </div>
+                          </ul>
+                      </div>
+                  </div>
                 </header>
                 
                 <section class="fundoo-dash-create-note">

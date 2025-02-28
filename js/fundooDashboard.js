@@ -17,6 +17,17 @@ document.addEventListener("DOMContentLoaded", function () {
   let searchQuery = ""; // Store the search query
   let currentEditingNoteId = null;
 
+  const userName = localStorage.getItem("userName") || "Guest";
+  const userEmail = localStorage.getItem("userEmail") || "guest@example.com";
+
+  // Update profile button with first letter of email
+  const profileLogo = document.getElementById("profileLogo");
+  profileLogo.textContent = userEmail.charAt(0).toUpperCase();
+
+  // Update dropdown with user details
+  document.getElementById("userName").textContent = userName;
+  document.getElementById("userEmail").textContent = userEmail;
+    
   if (!authToken) {
     alert("You are not logged in!");
     return;
@@ -325,6 +336,8 @@ document.addEventListener("DOMContentLoaded", function () {
   if (logoutButton) {
     logoutButton.addEventListener("click", function () {
       localStorage.removeItem("jwtToken"); // Remove authentication token
+      localStorage.removeItem("userName");
+      localStorage.removeItem("userEmail");
       window.location.href = "fundooLogin.html"; // Redirect to login page
     });
   }
