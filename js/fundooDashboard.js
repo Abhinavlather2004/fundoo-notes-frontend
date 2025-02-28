@@ -298,6 +298,7 @@ document.addEventListener("DOMContentLoaded", function () {
   async function changeColor(id) {
     const newColor = prompt("Enter new color (e.g., #ff5733):");
     if (!newColor) return;
+
     try {
       await fetch(`${apiUrl}/${id}/color`, {
         method: "PUT",
@@ -305,7 +306,7 @@ document.addEventListener("DOMContentLoaded", function () {
           "Content-Type": "application/json",
           Authorization: `Bearer ${authToken}`,
         },
-        body: JSON.stringify({ note: { color: newColor } }),
+        body: JSON.stringify({ color: newColor } ),
       });
       updateNoteLocally(id, { color: newColor });
     } catch (error) {
