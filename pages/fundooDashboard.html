@@ -28,29 +28,34 @@
             <div class="fundoo-dash-main-content">
 
                 <header>
-                    <div class="fundoo-dash-search">
-                        <i class="fas fa-search"></i>
-                        <input type="text" id="searchInput" placeholder="Search notes...">
+                    <div class="fundoo-dash-header">
+                        <div class="fundoo-dash-menu">
+                            <i class="fas fa-bars fundoo-dash-hamburger"></i>
+                            <span class="section-label">Notes</span>
+                        </div>
+                        <div class="fundoo-dash-search">
+                            <i class="fas fa-search"></i>
+                            <input type="text" id="searchInput" placeholder="Search notes...">
+                        </div>
                     </div>
                     <div class="fundoo-dash-profile">
-                      <div class="btn-group">
-                          <button type="button" class="btn btn-secondary fundoo-dash-profile-button" data-bs-toggle="dropdown" aria-expanded="false">
-                              <span id="profileLogo"></span> <!-- Placeholder for the first letter -->
-                          </button>
-                          <ul class="dropdown-menu dropdown-menu-end">
-                              <li>
-                                  <div class="dropdown-item-text">
-                                      <span id="userName" class="profile-greeting"></span> <!-- User's name -->
-                                      <br>
-                                      <small id="userEmail"></small> <!-- User's email -->
-                                  </div>
-                              </li>
-                              <li><hr class="dropdown-divider"></li>
-                              <!-- <li><button class="dropdown-item" type="button">Profile Settings</button></li> -->
-                              <li><button id="Logout" class="dropdown-item" type="button">Logout</button></li>
-                          </ul>
-                      </div>
-                  </div>
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-secondary fundoo-dash-profile-button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <span id="profileLogo"></span>
+                            </button>
+                            <ul class="dropdown-menu dropdown-menu-end">
+                                <li>
+                                    <div class="dropdown-item-text">
+                                        <span id="userName" class="profile-greeting"></span>
+                                        <br>
+                                        <small id="userEmail"></small>
+                                    </div>
+                                </li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><button id="Logout" class="dropdown-item" type="button">Logout</button></li>
+                            </ul>
+                        </div>
+                    </div>
                 </header>
                 
                 <section class="fundoo-dash-create-note">
