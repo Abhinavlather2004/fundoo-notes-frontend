@@ -1,3 +1,4 @@
+/* General Reset and Base Styles */
 body {
   font-family: 'Arial', sans-serif;
   margin: 0;
@@ -5,14 +6,16 @@ body {
   background-color: #f5f5f5;
 }
 
+/* Main Container */
 .fundoo-dash-container {
   display: flex;
   height: 100vh;
 }
 
+/* Sidebar Styles */
 .fundoo-dash-sidebar {
   width: 18%;
-  min-width: 0;
+  min-width: 200px; /* Ensure a minimum width for usability */
   background: #fff;
   padding: 3em;
   box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
@@ -61,6 +64,7 @@ body {
   color: #202124;
 }
 
+/* Main Content Styles */
 .fundoo-dash-main-content {
   flex: 1;
   padding: 2%;
@@ -72,6 +76,7 @@ body {
   margin-left: 0;
 }
 
+/* Header Styles */
 .fundoo-dash-main-content header {
   display: flex;
   justify-content: space-between;
@@ -84,7 +89,7 @@ body {
 .fundoo-dash-header {
   display: flex;
   align-items: center;
-  gap: 10px; /* Space between menu and search bar */
+  gap: 10px;
   flex: 1;
 }
 
@@ -92,10 +97,10 @@ body {
   display: flex;
   align-items: center;
   gap: 8px;
-  background-color: #f1f3f4; /* Same background as search bar */
+  background-color: #f1f3f4;
   padding: 8px 12px;
   border-radius: 8px;
-  height: 44px; /* Match search bar height */
+  height: 44px;
 }
 
 .fundoo-dash-hamburger {
@@ -144,6 +149,7 @@ body {
   color: #202124;
 }
 
+/* Profile Button */
 .fundoo-dash-profile-button {
   background-color: orange !important;
   border: none !important;
@@ -158,6 +164,7 @@ body {
   padding: 0;
 }
 
+/* Create Note Section */
 .fundoo-dash-create-note {
   display: flex;
   width: 60%;
@@ -189,6 +196,7 @@ body {
   box-shadow: none;
 }
 
+/* Notes Grid */
 .fundoo-dash-notes-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
@@ -196,6 +204,7 @@ body {
   margin-top: 20px;
 }
 
+/* Individual Note */
 .fundoo-dash-note {
   position: relative;
   padding: 12px 12px 28px 12px;
@@ -241,6 +250,7 @@ body {
   left: 12px;
 }
 
+/* Note Icons (Archive, Delete) */
 .note-icons {
   position: absolute;
   bottom: 8px;
@@ -264,22 +274,14 @@ body {
   display: inline-block;
 }
 
-.note-icons .delete-icon {
-  position: relative;
-  bottom: 0;
-  right: 0;
-}
-
-.note-icons .delete-icon:hover {
-  background-color: #ffe0b2;
-}
-
+.note-icons .delete-icon,
 .note-icons .archive-icon {
   position: relative;
   bottom: 0;
   right: 0;
 }
 
+.note-icons .delete-icon:hover,
 .note-icons .archive-icon:hover {
   background-color: #ffe0b2;
 }
@@ -292,6 +294,7 @@ body {
   margin-right: 0.1em;
 }
 
+/* Modal Styles */
 #modalNoteContent {
   border: none;
   outline: none;
@@ -306,11 +309,13 @@ body {
   box-shadow: none;
 }
 
+/* Dropdown Styles */
 .dropdown-item-text {
   padding: 0.25rem 1.5rem;
   color: #212529;
 }
 
+/* Profile Info */
 #userName {
   font-weight: bold;
 }
@@ -333,6 +338,7 @@ body {
   content: "Hi,";
 }
 
+/* Color Picker */
 .color-picker-popover {
   position: absolute;
   background: white;
@@ -360,30 +366,99 @@ body {
   transform: scale(1.2);
 }
 
-@media (max-width: 768px) {
-  .fundoo-dash-sidebar {
-      width: 50%;
-      position: absolute;
-      z-index: 1000;
-  }
 
-  .fundoo-dash-sidebar.collapsed {
-      width: 0;
+
+/* Large Tablets (769px to 1024px) */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .fundoo-dash-sidebar {
+    width: 30%; 
+    position: static; 
+    min-width: 180px;
   }
 
   .fundoo-dash-main-content {
-      padding: 1em;
+    padding: 1.5em;
   }
 
   .fundoo-dash-notes-grid {
-      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
   }
 
-  .fundoo-dash-menu {
-      flex-shrink: 0; /* Prevent shrinking on mobile */
+  .fundoo-dash-create-note {
+    width: 80%; 
   }
 
   .fundoo-dash-search {
-      flex: 1; /* Take remaining space */
+    width: 60%;
+  }
+}
+
+/* Small Tablets and Mobile (max-width: 768px) */
+@media (max-width: 768px) {
+  .fundoo-dash-sidebar {
+    width: 50%;
+    position: absolute;
+    z-index: 1000;
+    min-width: 0;
+  }
+
+  .fundoo-dash-sidebar.collapsed {
+    width: 0;
+    padding: 0;
+    overflow: hidden;
+  }
+
+  .fundoo-dash-main-content {
+    padding: 1em;
+  }
+
+  .fundoo-dash-notes-grid {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  }
+
+  .fundoo-dash-menu {
+    flex-shrink: 0;
+  }
+
+  .fundoo-dash-search {
+    flex: 1;
+    width: 100%; 
+  }
+
+  .fundoo-dash-create-note {
+    width: 90%; 
+  }
+}
+
+/* Extra Small Screens (max-width: 480px) */
+@media (max-width: 480px) {
+  .fundoo-dash-sidebar {
+    width: 70%; 
+  }
+
+  .fundoo-dash-notes-grid {
+    grid-template-columns: 1fr; 
+  }
+
+  .fundoo-dash-main-content {
+    padding: 0.5em;
+  }
+
+  .fundoo-dash-create-note {
+    width: 100%;
+  }
+
+  .fundoo-dash-search {
+    width: 100%;
+  }
+
+  .fundoo-dash-header {
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  .fundoo-dash-menu {
+    width: 100%;
+    justify-content: space-between;
   }
 }

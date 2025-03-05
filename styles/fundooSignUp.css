@@ -98,3 +98,140 @@ body {
   justify-content: space-between;
   align-items: center;
 }
+
+/* Media Queries */
+
+/* Large Tablets (769px–1024px) */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .signup-container {
+    width: 90%; 
+    padding: 30px; 
+  }
+
+  .signup-image {
+    width: 300px; 
+  }
+
+  .signup-card {
+    padding-right: 20px; 
+  }
+
+  .signup-title {
+    font-size: 24px; 
+  }
+
+  .signup-subtitle {
+    font-size: 16px; 
+  }
+
+  .signup-submit-button {
+    padding: 8px 16px; 
+    font-size: 15px;
+  }
+}
+
+/* Small Tablets (481px–768px) */
+@media (min-width: 481px) and (max-width: 768px) {
+  .signup-container {
+    flex-direction: column; 
+    width: 90%;
+    padding: 20px;
+    align-items: center;
+  }
+
+  .signup-card {
+    padding-right: 0; 
+    width: 100%; 
+    text-align: center; 
+  }
+
+  .signup-title {
+    font-size: 22px;
+  }
+
+  .signup-subtitle {
+    font-size: 15px;
+  }
+
+  .signup-image-container {
+    margin-top: 30px; 
+  }
+
+  .signup-image {
+    width: 250px; 
+  }
+
+  .signup-submit-button {
+    padding: 8px 16px;
+    font-size: 14px;
+  }
+
+  .signup-helper {
+    font-size: 12px;
+  }
+
+  .signup-actions {
+    flex-direction: column; 
+    gap: 10px; 
+  }
+
+  .signup-signin-link {
+    font-size: 13px;
+  }
+}
+
+/* Mobile (≤480px) */
+@media (max-width: 480px) {
+  .signup-container {
+    flex-direction: column;
+    width: 90%;
+    padding: 15px;
+    align-items: center;
+  }
+
+  .signup-card {
+    padding-right: 0;
+    width: 100%;
+    text-align: center;
+  }
+
+  .signup-title {
+    font-size: 20px;
+  }
+
+  .signup-subtitle {
+    font-size: 14px;
+    margin-bottom: 15px;
+  }
+
+  .signup-image-container {
+    margin-top: 20px;
+  }
+
+  .signup-image {
+    width: 200px; 
+  }
+
+  .signup-submit-button {
+    padding: 8px 14px;
+    font-size: 13px;
+    width: 100%; 
+  }
+
+  .signup-helper {
+    font-size: 11px;
+  }
+
+  .signup-actions {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .signup-signin-link {
+    font-size: 12px;
+  }
+
+  .form-floating input {
+    font-size: 14px; 
+  }
+}

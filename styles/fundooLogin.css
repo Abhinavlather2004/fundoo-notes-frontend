@@ -37,17 +37,16 @@ p {
 
 .fundoo-login-forgot-password {
   font-size: 0.875rem;
-  color: #4285F4;
+  color: #4285f4;
   text-decoration: none;
   display: flex;
 }
 
-.fundoo-login-create-account{
+.fundoo-login-create-account {
   font-size: 0.875rem;
-  color: #4285F4;
+  color: #4285f4;
   text-decoration: none; 
 }
-
 
 .fundoo-login-actions {
   display: flex;
@@ -56,10 +55,9 @@ p {
   margin-top: 1.5rem;
 }
 
-
 .fundoo-login-submit-button {
   padding: 0.625rem 1.25rem;
-  background-color: #4285F4;
+  background-color: #4285f4;
   color: white;
   border: none;
   border-radius: 0.3125rem;
@@ -69,4 +67,112 @@ p {
 
 .fundoo-login-submit-button:hover {
   background-color: #357ae8;
+}
+
+
+
+/* Large Tablets (769px–1024px) */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .fundoo-login-container {
+    width: 22rem; 
+    padding: 2rem; 
+  }
+
+  .fundoo-login-title {
+    font-size: 1.5rem; 
+  }
+
+  h2 {
+    font-size: 1.1rem; 
+  }
+
+  p {
+    font-size: 0.9rem; 
+  }
+
+  .fundoo-login-forgot-password,
+  .fundoo-login-create-account {
+    font-size: 0.8rem; 
+  }
+
+  .fundoo-login-submit-button {
+    padding: 0.5rem 1rem; 
+    font-size: 0.9rem;
+  }
+}
+
+/* Small Tablets (481px–768px) */
+@media (min-width: 481px) and (max-width: 768px) {
+  .fundoo-login-container {
+    width: 90%; 
+    max-width: 20rem; 
+    padding: 1.5rem; 
+  }
+
+  .fundoo-login-title {
+    font-size: 1.4rem;
+  }
+
+  h2 {
+    font-size: 1rem;
+  }
+
+  p {
+    font-size: 0.85rem;
+    margin-bottom: 1.2rem;
+  }
+
+  .fundoo-login-forgot-password,
+  .fundoo-login-create-account {
+    font-size: 0.75rem;
+  }
+
+  .fundoo-login-actions {
+    flex-direction: row; 
+    gap: 10px; 
+  }
+
+  .fundoo-login-submit-button {
+    padding: 0.5rem 1rem;
+    font-size: 0.85rem;
+  }
+}
+
+/* Mobile (≤480px) */
+@media (max-width: 480px) {
+  .fundoo-login-container {
+    width: 90%; 
+    max-width: 18rem;
+    padding: 1rem; 
+  }
+
+  .fundoo-login-title {
+    font-size: 1.25rem;
+  }
+
+  h2 {
+    font-size: 0.9rem;
+  }
+
+  p {
+    font-size: 0.8rem;
+    margin-bottom: 1rem;
+  }
+
+  .fundoo-login-forgot-password,
+  .fundoo-login-create-account {
+    font-size: 0.7rem;
+  }
+
+  .fundoo-login-actions {
+    flex-direction: column; 
+    gap: 10px; 
+    margin-top: 1rem;
+  }
+
+  .fundoo-login-submit-button {
+    padding: 0.5rem 1rem;
+    font-size: 0.8rem;
+    width: 100%; 
+  }
 }
