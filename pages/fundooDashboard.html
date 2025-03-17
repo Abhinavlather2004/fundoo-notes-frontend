@@ -20,6 +20,7 @@
                     <ul>
                         <li id="notesTab"><i class="fas fa-sticky-note"></i> Notes</li>
                         <li id="archiveTab"><i class="fas fa-archive"></i> Archive</li>
+                        <li id="reminderTab"><i class="fas fa-bell"></i> Reminder</li>
                         <li id="trashTab"><i class="fas fa-trash"></i> Trash</li>
                     </ul>
                 </nav>
@@ -63,10 +64,23 @@
                 </section>
 
                 <section class="fundoo-dash-notes-grid">
-                    <!-- <div class="fundoo-dash-note">Sample Note 1</div>
-                    <div class="fundoo-dash-note">Sample Note 2</div>
-                    <div class="fundoo-dash-note">Sample Note 3</div>
-                    <div class="fundoo-dash-note">Sample Note 4</div> -->
+                    <!-- Updated note structure with actions -->
+                    <div class="fundoo-dash-note" data-note-id="1">
+                        <div class="note-content">Sample Note 1</div>
+                        <div class="note-actions">
+                            <i class="fas fa-bell reminder-btn" title="Add reminder"></i>
+                            <i class="fas fa-archive archive-btn" title="Archive"></i>
+                            <i class="fas fa-trash trash-btn" title="Delete"></i>
+                        </div>
+                    </div>
+                    <div class="fundoo-dash-note" data-note-id="2">
+                        <div class="note-content">Sample Note 2</div>
+                        <div class="note-actions">
+                            <i class="fas fa-bell reminder-btn" title="Add reminder"></i>
+                            <i class="fas fa-archive archive-btn" title="Archive"></i>
+                            <i class="fas fa-trash trash-btn" title="Delete"></i>
+                        </div>
+                    </div>
                 </section>
                 <section class="fundoo-dash-trash-gird">
 
@@ -96,7 +110,26 @@
               </div>
             </div>
           </div>
-      </div>
+        </div>
+        
+        <div class="modal fade" id="reminderModal" tabindex="-1" aria-labelledby="reminderModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="reminderModalLabel">Set Reminder</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <input type="datetime-local" id="reminderDateTime" class="form-control">
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                        <button type="button" class="btn btn-primary" id="setReminderButton">Set Reminder</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
 
     </body>
-    </html>
+</html>

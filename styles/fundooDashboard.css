@@ -462,3 +462,41 @@ body {
     justify-content: space-between;
   }
 }
+
+.fundoo-dash-note {
+  position: relative;
+  padding: 15px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  margin: 10px;
+  background: white;
+}
+
+.note-actions {
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+.fundoo-dash-note:hover .note-actions {
+  opacity: 1;
+}
+
+.note-actions i {
+  margin: 0 5px;
+  cursor: pointer;
+  color: #666;
+}
+
+.note-actions i:hover {
+  color: #000;
+}
+
+.reminder-info {
+  margin-top: 10px;
+  font-size: 0.9em;
+  color: #666;
+}
+
+.reminder-info i {
+  margin-right: 5px;
+}
